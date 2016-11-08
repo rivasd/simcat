@@ -276,7 +276,7 @@ function ExpLauncher(opts, canvas){
 		
 		var pauseTrial = {
 			type: 'html',
-			url: '/webexp/'+djPsych.getLabel()+'/request/snippet/'+url,
+			url: '/webexp/'+serverPsych.getLabel()+'/request/snippet/'+url,
 			cont_btn: 'ctn-button',
 			check_fn: check_fn
 		}
