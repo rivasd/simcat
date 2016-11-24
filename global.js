@@ -52,6 +52,8 @@ function run(settings){
 		var exp = launcher.createStandardExperiment(settings, null, {reuseStim: true, saveDescription: true});
 		exp.meta.startTime = new Date().toISOString();
 		$bar.progressbar("destroy");
+		$progressLabel.remove();
+		
 		
 		$("#stimCanvas").remove();
 		//HERE IS WHERE THE EXPERIMENT BEGINS
@@ -66,7 +68,7 @@ function run(settings){
 				serverPsych.save(data, true, exp.meta);
 			},
 			on_trial_start:function(){
-				jsPsych.getDisplayElement()[0].scrollIntoView();
+				$("#jsPsychTarget")[0].scrollIntoView();
 			}
 		})
 	})
