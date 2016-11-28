@@ -37,7 +37,7 @@ $(function () {
 });
 
 function run(settings){
-	settings.timeline = serverPsych.unpack(settings.timeline, function(t){return t;});
+	//settings.timeline = serverPsych.unpack(settings.timeline, function(t){return t;});
 	var launcher = ExpLauncher(settings, document.getElementById("stimCanvas")); //initialize a launcher and drawer 
 	var $bar = $("#progressBar");
 	var $progressLabel = $("<div></div>");
@@ -65,7 +65,11 @@ function run(settings){
 			timeline: exp.timeline,
 			on_finish: function(data){
 				//jsPsych.data.displayData("json");
-				serverPsych.save(data, true, exp.meta);
+				serverPsych.save({
+					data:data,
+					complete: true,
+					toSave: exp.meta
+				});
 			},
 			on_trial_start:function(){
 				$("#jsPsychTarget")[0].scrollIntoView();
