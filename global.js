@@ -68,7 +68,7 @@ function run(settings){
 				serverPsych.save({
 					data:data,
 					complete: true,
-					toSave: exp.meta
+					toSave: exp.meta.globalparams
 				});
 			},
 			on_trial_start:function(){
